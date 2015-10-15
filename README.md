@@ -18,7 +18,7 @@ For more details on individual functions and classes, please refer to the JavaDo
 
 JavaDocs
 --------
-[AdditiveFunctionTester API](http://nolepointer.github.io/SecretFunction/doc/)
+[Documentation](http://nolepointer.github.io/SecretFunction/doc/)
 
 Installation
 ------------
@@ -26,7 +26,7 @@ To build the classes, run the following command from src/
 
     $ javac *
 
-Then run the driver class with one argument N, with N representing all combinations of prime numbers less than N
+Now run the driver class with one argument N, with N representing all combinations of prime numbers less than N
 
     $ java AdditiveFunctionTesterDriver 100
     $ Secret is an additive function!
