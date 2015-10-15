@@ -1,5 +1,10 @@
 import java.util.BitSet;
 
+/**
+ * 
+ * @author Ryan Gidus
+ *
+ */
 public class AdditiveFunctionTesterDriver {
     
     private static int DEFAULT_LIMIT = 100;

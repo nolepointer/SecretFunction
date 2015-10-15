@@ -11,13 +11,6 @@ import java.util.Map;
 public class AdditiveFunctionTester {
     private Map<Integer, Integer> cacheMap = new HashMap<Integer, Integer>();
 
-    private int secret(int n) {
-	/**
-	 * Implementation unknown
-	 */
-	return n;
-    }
-
     // cache then call secret
     public int checkSecret(int n) {
 	Integer returnValue;
@@ -25,7 +18,7 @@ public class AdditiveFunctionTester {
 	if ((returnValue = cacheMap.get(n)) != null) {
 	    return returnValue;
 	} else {
-	    returnValue = secret(n);
+	    returnValue = Mystery.secret(n);
 	    cacheMap.put(n, returnValue);
 	}
 	return returnValue;
