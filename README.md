@@ -24,7 +24,7 @@ Installation
 ------------
 To build the classes, run the following command from src/
 
-    $ javac *
+    $ javac *.java
 
 Now run the driver class with one argument N, with N representing all combinations of prime numbers less than N
 

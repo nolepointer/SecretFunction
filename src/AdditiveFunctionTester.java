@@ -3,31 +3,31 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *  This class consists of a static method to generate prime numbers and to 
- *  functions to call a check if a secret function is additive by calling
- *  it with combinations of prime numbers.  It also uses caching for optimization.
+ * This class consists of a static methods to generate prime numbers and to
+ * check if a secret function is additive. It does this by calling secret with
+ * all combinations of prime numbers up to a given value. Caching is used for
+ * optimization.
  * 
  * @author Ryan Gidus
- *
+ * 
  */
 
 public class AdditiveFunctionTester {
-    
-    /*
-     * HashMap with Integer keys and values to save results from the secret function
-     */
-    private Map<Integer, Integer> cacheMap = new HashMap<Integer, Integer>();
 
     /**
-     * Checks the cache for the result of the input n. If there's a hit,
-     * the value is returned.  Otherwise, secret is called and the result
-     * is cached and returned.
+     * Wrapper function to call secret while caching known results.
      * 
-     * @param n the input for the secret function
+     * @param n
+     *            the input for the secret function
      * @return the result of the secret function
      */
-    public int checkSecret(int n) {
+    public static int checkSecret(int n) {
 	Integer returnValue;
+	/*
+	* HashMap with Integer keys and values to save results from the secret
+	* function
+	*/
+	Map<Integer, Integer> cacheMap = new HashMap<Integer, Integer>();
 
 	if ((returnValue = cacheMap.get(n)) != null) {
 	    return returnValue;
@@ -39,21 +39,21 @@ public class AdditiveFunctionTester {
     }
 
     /**
-     * Loops through a BitSet of prime numbers and calls uses each combination
-     * to check if secret is additive
+     * Loops through a BitSet of prime numbers and calls secret using each
+     * combination to check if secret is additive
      * 
-     * @param primes a BitSet of prime numbers with primes marked as true
+     * @param primes
+     *            a BitSet of prime numbers with primes marked as true
      * @return a boolean representing whether or not secret is additive
      */
-    public boolean isSecretAdditive(BitSet primes) {
+    public static boolean isSecretAdditive(BitSet primes) {
 	int length = primes.length();
 
 	for (int i = 0; i < length; i++) {
 	    if (primes.get(i)) {
 		for (int j = i + 1; j < length; j++) {
 		    if (primes.get(j)) {
-			if (checkSecret(i + j) != checkSecret(i)
-				+ checkSecret(j))
+			if (checkSecret(i + j) != checkSecret(i) + checkSecret(j))
 			    return false;
 		    }
 		}
@@ -65,7 +65,8 @@ public class AdditiveFunctionTester {
     /**
      * Use a Sieve of Eratosthenes to generate prime numbers
      * 
-     * @param N the limit on the value of prime numbers to generate
+     * @param N
+     *            the limit on the value of prime numbers to generate
      * @return a Bitset with prime values marked as true
      */
     public static BitSet generatePrimes(int N) {
@@ -83,7 +84,6 @@ public class AdditiveFunctionTester {
 		}
 	    }
 	}
-
 	return numberSet;
     }
 }
